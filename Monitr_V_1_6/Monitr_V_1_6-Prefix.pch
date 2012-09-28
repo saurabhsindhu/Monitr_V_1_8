@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'Monitr_V_1_6' target in the 'Monitr_V_1_6' project
+//
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+#endif
