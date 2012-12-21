@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0, maximum-scale= 1.0, user-scalable= no" />
+    <title></title>
+    <link href="css/adminz.styles.css" rel="stylesheet" type="text/css" />
+    <link href="css/blue.styles.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery.mobile.fixedToolbar.polyfill.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery.mobile-1.1.1.css" rel="stylesheet" type="text/css" />
+    <link href="css/jqm-docs.css" rel="stylesheet" type="text/css" />
+    <link href="css/jquery-bubble-popup-v3.css" rel="stylesheet" type="text/css" />
+    <script src="script/jquery.js" type="text/javascript"></script>
+    <script src="script/jquery-1.7.1.min.js" type="text/javascript"></script>
+    <script src="script/jquery.mobile-1.1.1.js" type="text/javascript"></script>
+    <script src="script/jquery.mobile.fixedToolbar.polyfill.js" type="text/javascript"></script>
+    <script src="script/jqm-docs.js" type="text/javascript"></script>
+    <script src="script/jquery.blockUI.js" type="text/javascript"></script>
+    <script src="script/jMsAjax.js" type="text/javascript"></script>
+    <script src="script/WS.js" type="text/javascript"></script>
+    <script src="script/jMsAjax.js" type="text/javascript"></script>
+    <script src="script/modernizr2.6.1.js" type="text/javascript"></script>
+    <script src="script/linq.js" type="text/javascript"></script>
+    <script src="script/phonegap-1.3.0.js" type="text/javascript"></script>
+    <script src="script/ChildBrowser.js" type="text/javascript"></script>
+    <script src="script/jquery-bubble-popup-v3.min.js" type="text/javascript"></script
+</head>
+<body>
+    <!-- Login Page -->
+    <div data-role="page" id="LoginPage" style="background:#1b1b1b;display:none;" ontouchmove="touchMove(event);" class="innerGlow">
+        <!--<div class="container">-->
+            <!-- Panel -->
+            <div id="divInner" style="opacity: 1; z-index: 0;" class="innerElement">
+            <center>
+            <br />
+                        <div class="div_full">
+                        <div class="dh logo_Login">
+                        </div>
+                        </div>
+                        </center>
+                 <div class="ch">
+                    </div>
+                <div data-role="content">
+                    <div class="content" >
+                       <center><input type="text" name="name" id="txtUserName" placeholder="Username" value="user_user"  maxlength="50" onpaste="return false" class="ui-corner-top "   /></center>
+                       <center><input type="password" name="password" id="txtPassword" placeholder="Password" value="softobiz123@" style="margin-top:-9px;" class="password-field ui-corner-bottom " maxlength="20" onpaste="return false" /></center>
+                        <br />
+                        <div class="div_full">
+                            <center><a href="#" id="btnSubmit" data-corners="true" data-transition="slide"  data-role="button">Login</a></center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Panel ended -->
+       <!-- </div>-->
+    </div>
+    <!-- Login Page Ended -->
+
+    <!-- Video Directory Page -->
+    <div data-role="page" id="GridView">
+        <div class="panel_grid" id="PanelGrid" style="opacity: 1; z-index: 0;">
+            <div data-role="header" style="width: 100%; position: fixed;" data-position="fixed"
+                role="banner">
+                <div class="banner_black">
+                    <!-- Logo -->
+                    <div class="ch">
+                        <div class="dh eh_logo">
+                        </div>
+                    </div>
+                    <!-- Logo ends -->
+                    <div id="divReload" class="fh_load">
+                        <!-- Reload Button -->
+                        <a class="mh" href="#" id="btnReload" onclick="ReLoadAssets()">
+                            <div class="kh">
+                                <div class="img_reload">
+                                </div>
+                            </div>
+                        </a>
+                        <!-- Reload Button ends-->
+                        <!-- Logout Button -->
+                        <a class="jh_change" id="aLogout" href="#" onclick="LogOut()">
+                            <div class="kh_change">
+                                <div class="lh">
+                                </div>
+                            </div>
+                        </a>
+                        <!-- Logout Button ends -->
+                    </div>
+                    <div id="divSearch" class="fh_search">
+                        <!-- Search Button -->
+                        <a class="mh" href="#" id="btnSearch" onclick="ShowFilter()">
+                            <div class="kh">
+                                <div class="nh">
+                                </div>
+                            </div>
+                        </a>
+                        <!-- Search Button ends -->
+                        <!-- Cancel Search Button -->
+                        <a class="mh" href="#" id="btnCancel" style="display: none;" onclick="CancelSearch()">
+                            <div class="kh">
+                                <div class="img_close">
+                                </div>
+                            </div>
+                        </a>
+                        <!-- Cancel Search Button ends-->
+                    </div>
+                    <div id="divload" class="fh_load">
+                        <!-- Loading Sign -->
+                        <div class="mh">
+                            <div class="kh">
+                                <span id="Loading" class="loading_sign"></span>
+                                <br />
+                            </div>
+                        </div>
+                        <!-- Loading sign ends -->
+                    </div>
+                </div>
+            </div>
+            <!-- Header ends -->
+            <div style="text-align: justify;">
+                <!-- Search Bar -->
+                <div id="divSearch_Filter" style="margin-left: 2px; margin-right: 2px; display: none;">
+                    <input id="txtSearch" placeholder="Search..." data-type="search" class="ui-input-text ui-body-c"
+                        onpaste="return false" />
+                </div>
+                <!-- Search Bar ends -->
+                <!-- Content Div -->
+                <div data-role="content" style="width: 100%;">
+                    <div class="content">
+                        <div style="width: 100%;" id="divTile">
+                        </div>
+                    </div>
+                    <h6>
+                        <span id="spn_Message"></span>
+                    </h6>
+                </div>
+                <!-- Content Div ends -->
+            </div>
+        </div>
+    </div>
+    <!-- Video Directory Page ends -->
+</body>
+<script type="text/javascript" language="javascript">
+    //================= Global Variable Declaration =============//
+    var SERVICEBASEURL = "http://50.28.36.109/OxySystemsMobileService/WebService.asmx";
+    var USERIDKEY = "useridkey";
+    var TOTALASSETS = "";
+    var SEARCHASSETS = "";
+    var DEVICEAGENT = navigator.userAgent.toLowerCase();
+    
+    //================ Changing the login page design ===========//
+    $("#LoginPage").ready(function(){
+        if (DEVICEAGENT.indexOf("iphone") > 0) {
+         //check for the Iphone
+         var divMargin="85px";
+         var txtWidth = "250px";
+         var txtHeight = "40px";
+                          $("#txtUserName").css({"width":txtWidth});
+                          $("#txtUserName").css({"height":txtHeight});
+                          $("#txtPassword").css({"width":txtWidth});
+                          $("#txtPassword").css({"height":txtHeight});
+                          $("#btnSubmit").css({"width":txtWidth});
+                          $("#divInner").css({"margin-top":divMargin});
+                          //$("#LoginPage").css({"display":"inline"});
+                          $("#LoginPage").fadeIn();
+
+
+    }
+       else if (DEVICEAGENT.indexOf("ipad") > 0) {
+            //check for the Ipad
+                          var txtWidth = "600px";
+                          var txtHeight = "40px";
+                          var divMargin="100px";
+                          $("#txtUserName").css({"width":txtWidth});
+                          $("#txtUserName").css({"height":txtHeight});
+                          $("#txtPassword").css({"width":txtWidth});
+                          $("#txtPassword").css({"height":txtHeight});
+                          $("#btnSubmit").css({"width":txtWidth});
+                          $("#LoginPage").fadeIn();
+                          $("#divInner").css({"margin-top":divMargin});
+                          
+                          }
+                          else {
+                          var txtWidth = "250px";
+                          var txtHeight = "40px";
+                          var divMargin="85px";
+                          $("#txtUserName").css({"width":txtWidth});
+                          $("#txtUserName").css({"height":txtHeight});
+                          $("#txtPassword").css({"width":txtWidth});
+                          $("#txtPassword").css({"height":txtHeight});
+                          $("#btnSubmit").css({"width":txtWidth});
+                          $("#LoginPage").fadeIn();
+                          $("#divInner").css({"margin-top":divMargin}); 
+
+                          }
+    });
+    
+    touchMove = function(event) 
+    {
+        event.preventDefault();  
+    } 
+
+    
+    //================= Set focus on Search Bar =================//
+    $("#GridView").ready(function () {
+        var searchClear = "";
+        var setSearchText = "Search...";
+        $("#txtSearch").keydown(function () {
+            $(".ui-icon-delete").hide();
+            $(".ui-input-clear").hide();
+        });
+        $("#txtSearch").focus(function () {
+            $("#txtSearch").attr('placeholder', searchClear);
+        });
+        $("#txtSearch").blur(function () {
+            $("#txtSearch").attr('placeholder', setSearchText);
+        });
+    });
+
+    //===================== Set focus on LoginTextBoxes =========================//
+    $("#LoginPage").ready(function () {
+        var loginTextClear = "";
+        var setusernameText = "Username";
+        var setpasswordText = "Password";
+
+        $("#txtUserName").focus(function () {
+            $("#txtUserName").attr('placeholder', loginTextClear);
+        });
+        $("#txtUserName").blur(function () {
+            $("#txtUserName").attr('placeholder', setusernameText);
+        });
+        $("#txtPassword").focus(function () {
+            $("#txtPassword").attr('placeholder', loginTextClear);
+        });
+        $("#txtPassword").blur(function () {
+            $("#txtPassword").attr('placeholder', setpasswordText);
+        });
+        
+    });
+    //================== Login Validations ======================//
+    $("#LoginPage").ready(function () {
+        $("#txtUserName").live("keypress", function (e) {
+            var userName = $("#txtUserName").val();
+            if (userName == "") {
+                if (e.which == 32) {
+                    return false;
+                }
+            }
+        });
+    });
+
+    //================== Applied Validations ====================//
+     $("#btnSubmit").click(function () {
+        $(".error").hide();
+        var hasError = false;
+        var userName = $('#txtUserName').val();
+        var Password = $('#txtPassword').val();
+        if (userName == '' || Password == '') {
+            navigator.notification.confirm(
+                'Username or Password cannot be left blank',
+                ConfirmClick,
+                'Login Failed',
+                "OK"
+            );
+        }
+        else {
+            Login();
+        }
+    });
+
+    //=============== Start alert function code =================//
+    function ConfirmClick(button) {
+        if (button == 1) {
+            $("#txtUserName").val('');
+            $('#txtPassword').val('');
+            $("#txtUserName").focus();
+        }
+    }
+
+    //====================== Signing In =========================//
+    function Login() {
+        username = $("#txtUserName").val();
+        password = $("#txtPassword").val();
+        var service = new WS(SERVICEBASEURL, WSDataType.jsonp);
+        service.call("Login", { username: username, password: password }, function (msg) { ServiceSucceeded(msg); }, ServiceFailed);
+    }
+
+    //============== Calls when Service succeeded ===============//
+    function ServiceSucceeded(result) {
+        var resultStatus = eval("(" + result.d + ")");
+        if (resultStatus.isUserlogged) {
+            var userID = resultStatus.UserId;
+            window.localStorage.setItem(USERIDKEY, userID);
+            var searchText = $("#txtSearch").val();
+            if (Modernizr.localstorage) {
+                var uID = window.localStorage.getItem(USERIDKEY);
+                $.mobile.changePage("#GridView", {
+                    type: "post",
+                    transition: "slide",
+                    data: $("index.html#GridView").serialize()
+                });
+                GetAssets(uID, searchText);
+            }
+            else {
+                navigator.notification.confirm(
+                    'Sorry, Your Browser doesnot support Local Storage',
+                    ConfirmClick,
+                    'Compatibility Error',
+                    "OK"
+                );
+            }
+        }
+        else {
+            navigator.notification.confirm(
+                'Username/Password is incorrect, Please retry with correct credentials.',
+                ConfirmClick,
+                'Login Failed',
+                "OK"
+            );
+        }
+    }
+
+    //================ Calls when service fails =================//
+    function ServiceFailed(xhr) {
+        navigator.notification.confirm(
+            'Please verify your internet connectivity',
+            ConfirmClick,
+            'Login Failed',
+            "OK"
+        );
+        if (xhr.responseText) {
+            var err = xhr.responseText;
+            if (err)
+                error(err);
+            else
+                error({ Message: "Unknown server error." })
+        }
+        return;
+    }
+
+    //=========== Calls the Service to Get Assets ===============//
+    function GetAssets(userID, searchText) {
+        var service = new WS(SERVICEBASEURL, WSDataType.jsonp);
+        service.call("GetAssetsBySearchstring", { UserID: userID, searchString: searchText }, function (msg) { GetAssetResult(msg); }, ServiceFailed);
+    }
+
+    //============== Calls the BindList function ================//
+    function GetAssetResult(msg) {
+        var resultStatus = eval("(" + msg.d + ")");
+        TOTALASSETS = resultStatus.valueOf();
+        BindGrid(TOTALASSETS);
+        SEARCHASSETS = TOTALASSETS.valueOf();
+    }
+
+    //============== Binds the images in Tiles ==================//
+    function BindGrid(data) {
+        $(".loading_sign").unblock();
+        $("#divTile").text("");
+        $("#spn_Message").text("");
+        var imgHeight = "";
+        var imgWidth = "";
+        var divAsset = "";
+        var streamAddr = "http://50.28.36.109:1935/live/";
+        if (DEVICEAGENT.indexOf("iphone") > 0) {
+            //check for the Iphone
+            imgWidth = "140px";
+            imgHeight = "90px";
+        }
+        else if (DEVICEAGENT.indexOf("ipad") > 0) {
+            //check for the Ipad
+            imgWidth = "240px";
+            imgHeight = "150px";
+        }
+        else {
+            imgWidth = "190px";
+            imgHeight = "120px";
+        }
+        for (var count = 0; count < data.length; count++) {
+            var runTime = data[count];
+            var longitude = runTime.Longitude;
+            var Location = runTime.LocationName;
+            var assetid = runTime.assetId;
+            var latitude = runTime.Latitude;
+            var company = runTime.Company;
+            var description = runTime.Description;
+            var contact = runTime.Operator;
+            var area = runTime.Area;
+            var trailer = runTime.TrailerVIN;
+            var assetname = runTime.AssetName;
+            var streamingUrl = streamAddr + runTime.ModemIp + '_' + runTime.ModemRTSPPort + '.stream/playlist.m3u8';
+            var modemPort = runTime.ModemPort;
+            var modemUserName = runTime.ModemUsername;
+            var modemPassword = runTime.ModemPassword;
+//             var streamingUrl="rtsp://50.28.36.109:1935/live/166.155.129.213_5541.stream" ;
+            //divAsset += '<div class="div_class "><center><a class="ui-link-inherit" data-transition="slide" href="#" onclick=OpenStream("' + streamingUrl + "&" + modemPort + "&" + modemUserName + "&" + modemPassword + '") ><img align="middle" id="imgasset" src="' + runTime.ImageThumbnail + '" alt="" height="' + imgHeight + '" width="' + imgWidth + '" /></center></br></ br><span class="ui_li_name">' + runTime.AssetName + '</span></a></div>';
+            divAsset += '<div class="div_class "><a class="ui-link-inherit" data-transition="slide" href="#" onclick=OpenStream("' + streamingUrl + "&" + modemPort + "&" + modemUserName + "&" + modemPassword + '") ><div height="' + imgHeight + '" width="' + imgWidth + '" style="z-index:0; position:relative;"><center><div style="position:absolute;top:30%;left:35%;background:black;"><img align="middle" id="imgplay" src="images/play.png" alt="" style="height:50px; width:50px;" /></div><img align="middle" id="imgasset" src="' + runTime.ImageThumbnail + '" alt="" height="' + imgHeight + '" width="' + imgWidth + '"/></center></div></a></br><a href="#"  ><span class="ui_li_name" id="spnUlName' + count + '" onclick=OpenDescription(this.id) >' + runTime.AssetName + '</span><span id="spnLocation" class="spandisable">' + Location + '</span><span id="spnLatitude" class="spandisable">' + latitude + '</span><span id="spnLongitude" class="spandisable">' + longitude + '</span><span id="spnCompanyName" class="spandisable">' + company + '</span><span id="spnDescription" class="spandisable">' + description + '</span><span id="spnContact" class="spandisable">' + contact + '</span><span id="spnArea" class="spandisable">' + area + '</span><span id="spnTrailer" class="spandisable">' + trailer + '</span></a></div>';
+        }
+        $("#divTile").append(divAsset);
+        if (divAsset == "") {
+            $("#spn_Message").text("No Assets Found.... ");
+        }
+    }
+
+    //=========== Showing the description of cameras ============//
+    function OpenDescription(obj) {
+        $(".ui_li_name").RemoveBubblePopup();
+        var assetName=$('#'+obj).text();
+        var spnLocation = $("#" + obj).next().text();
+        var locLength=spnLocation.length;
+        if (spnLocation == "") {
+            spnLocation = 'N/A';
+        }
+        else if(locLength>9){
+        var trimmed = spnLocation.slice(0, 7);
+            spnLocation = trimmed + "...";
+        }
+         var spnLatitude = $("#" + obj).next().next().text();
+        var LatitudeLength=spnLatitude.length;
+        if (spnLatitude == "") {
+            spnLatitude = 'N/A';
+        }
+        else if(LatitudeLength>9){
+        var trimmed = spnLatitude.slice(0, 7);
+            console.log(trimmed);
+            spnLatitude = trimmed + "...";
+        }
+        var spnLongitude = $("#" + obj).next().next().next().text();
+        var longtitudeLength=spnLongitude.length;
+        if (spnLongitude == "") {
+            spnLongitude = 'N/A';
+        }
+        else if(longtitudeLength>9){
+        var trimmed = spnLongitude.slice(0, 7);
+            console.log(trimmed);
+            spnLongitude = trimmed + "...";
+        }
+        var spnCompanyName = $("#" + obj).next().next().next().next().text();
+        var companyLength = spnCompanyName.length;
+        if (spnCompanyName == "") {
+            spnCompanyName = 'N/A';
+        }
+        else if (companyLength > 9) {
+            var trimmed = spnCompanyName.slice(0, 7);
+            spnCompanyName = trimmed + "...";
+        }
+        var spnDescription = $("#" + obj).next().next().next().next().next().text();
+        var DescripLength=spnDescription.length;
+        if (spnDescription == "") {
+            spnDescription = 'N/A';
+        }
+        else if(DescripLength>9){
+        var trimmed = spnDescription.slice(0, 7);
+            spnDescription = trimmed + "...";
+        }
+        var spnContact = $("#" + obj).next().next().next().next().next().next().text();
+        var contactLength=spnContact.length;
+        if (spnContact == "") {
+            spnContact = 'N/A';
+        }
+        else if(contactLength>9){
+        var trimmed = spnContact.slice(0, 7);
+            console.log(trimmed);
+            spnContact = trimmed + "...";
+        }
+        var spnArea = $("#" + obj).next().next().next().next().next().next().next().text();
+        var AreaLength=spnArea.length;
+        if (spnArea == "") {
+            spnArea = 'N/A';
+        }
+        else if(AreaLength>9){
+        var trimmed = spnArea.slice(0, 7);
+            spnArea = trimmed + "...";
+        }
+        var spnTrailer = $("#" + obj).next().next().next().next().next().next().next().next().text();
+        var trailerLength=spnTrailer.length;
+        if (spnTrailer == "") {
+            spnTrailer = 'N/A';
+        }
+        else if(trailerLength>9){
+        var trimmed = spnTrailer.slice(0, 7);
+            spnTrailer = trimmed + "...";
+        }
+        var Location = 'Location: ' + spnLocation;
+        var Latitude = 'Latitude: ' + spnLatitude;
+        var Longitude = 'Longitude: ' + spnLongitude;
+        var Company = 'Company: ' + spnCompanyName;
+        var Description = 'Description: ' + spnDescription;
+        var Contact = 'Contact: ' + spnContact;
+        var Area = 'Area: ' + spnArea;
+        var Trailer = 'Trailer: ' + spnTrailer;
+        var text=assetName + "</br>" + Location + "</br>" + Latitude + "</br>" + Longitude + "</br>" + Company + "</br>" + Description +"</br>" + Contact + "</br>" + Area + "</br>" + Trailer ;
+        $('#'+obj).CreateBubblePopup({
+            position: 'left',
+            align: 'center',
+            innerHtml: '<img src="images/loading.gif" style="border:0px; vertical-align:middle; margin-right:10px; display:inline;" />loading!',
+            innerHtmlStyle: { color: '#FFFFFF', 'text-align': 'center' }
+        });
+
+        $('#' + obj).ShowBubblePopup({
+                position:'absolute',
+                themePath:'images/jquerybubblepopup-themes',
+                innerHtml: text,
+                innerHtmlStyle:{'text-align':'left'}
+                 });
+        $('#' + obj).mouseleave(function () {
+            $('#' + obj).HideBubblePopup();
+        });
+        $('#' + obj).bind('touchend',function(){
+        $('#'+obj).HideBubblePopup();
+        });
+    }
+
+    //=============== Event is fired to Sign Out ================//
+    function LogOut() {
+        Clear();
+        window.location.href = "#LoginPage";
+        $("#txtSearch").val("");
+        window.localStorage.removeItem(USERIDKEY);
+    }
+
+    //=================== Clear TextBoxes =======================//
+    function Clear() {
+        $("#txtUserName").val("");
+        $("#txtPassword").val("");
+    }
+
+    //=========== Reloading the assets from service =============//
+    function ReLoadAssets() {
+        $('.content_grid').empty();
+        $("#btnCancel").hide();
+        $("#btnSearch").show();
+        $("#divSearch_Filter").hide();
+        $("#spn_Message").text("");
+        $("#txtSearch").val("");
+        var userID = window.localStorage.getItem(USERIDKEY);
+        var searchText = $("#txtSearch").val().toLowerCase();
+        var deviceName = "";
+        if (searchText == "") {
+            GetAssets(userID, searchText);
+        }
+        else if (TOTALASSETS == "") {
+            GetAssets(userID, searchText);
+        }
+        else {
+            GetAssets(userID, searchText);
+        }
+    }
+
+    //================= Cancelling Search =======================//
+    function CancelSearch() {
+        $(".ui-icon-delete").hide();
+        $(".ui-input-clear").hide();
+        $("#divTile").text("");
+        $("#txtSearch").blur();
+        $("#spn_Message").text("");
+        $("#btnCancel").hide();
+        $("#btnSearch").show();
+        $("#divSearch_Filter").hide();
+        $("#txtSearch").val("");
+        var searchText = $("#txtSearch").val();
+        if (searchText == "") {
+            BindGrid(TOTALASSETS);
+        }
+        else if (TOTALASSETS == "") {
+            BindGrid(TOTALASSETS);
+        }
+        else {
+            BindGrid(TOTALASSETS);
+        }
+    }
+
+    //==================== Filtering/Searching ==================//
+    function Filtering() {
+        var searchText = $("#txtSearch").val().toLowerCase();
+        var searchResult = Enumerable.From(SEARCHASSETS)
+                    .Where(function (name) { return name.AssetName.toLowerCase().indexOf(searchText) != -1 })
+                    .ToArray();
+        BindGrid(searchResult);
+    }
+
+    //== Showing Filter Bar and Cancel Button and hiding the Magnifier ==//
+    function ShowFilter() {
+        $("#divSearch_Filter").show();
+        $("#btnCancel").show();
+        $("#btnSearch").hide();
+        $("#txtSearch").focus();
+    }
+
+    //== Calling the Filtering event on KeyUp and on enter click event ==//
+    $("#txtSearch").keypress(function (e) {
+        var searchText = $("#txtSearch").val();
+        if (searchText == "") {
+            if (e.which == 32) {
+                return false;
+            }
+        }
+        else if (e.which == 13) {
+            Filtering();
+        }
+    });
+    $("#txtSearch").keyup(function (e) {
+        Filtering();
+    });
+
+    //======Method to Open the Streaming Url in Child Browser====//
+    function OpenStream(url) {
+        client_browser = ChildBrowser.install();
+        window.plugins.childBrowser.showWebPage(url);
+    }
+
+    //=== Method to call the ZoomIn and ZoomOut functionality ===//
+    function Zooming(url, portno, username, password, ptz, value) {
+        var zooming = "";
+        var url_parts = url.split('/');
+        var domain_parts = url_parts[4].split('_');
+        var IP = domain_parts[0];
+        var Port = portno;
+        var Username = username;
+        var Password = password;
+        var PTZ = ptz;
+        var Value = value;
+        var service = new WS(SERVICEBASEURL, WSDataType.jsonp);
+        service.call("ControlAssetString", { IP: IP, Port: Port, Username: Username, Password: Password, PTZ: PTZ, Value: Value }, function (msg) { ZoomSuccess(msg); }, ZoomFailed);
+    }
+
+    //== Method is called when ControlAsset service is succeded ==//
+    function ZoomSuccess(msg) {
+
+    }
+
+    //===== Method is called when ControlAsset service is failed ========//
+    function ZoomFailed(result) {
+
+    }
+    function ZoomFailed(xhr) {
+        navigator.notification.confirm(
+        'Service called Failed',
+        SuccessConfirm,
+        'Error',
+        "OK"
+        );
+        if (xhr.responseText) {
+            var err = xhr.responseText;
+            if (err)
+                error(err);
+            else
+                error({ Message: "Unknown server error." })
+        }
+        return;
+    }
+
+    //== Method to call Service for Preseting the camera position ===//
+    function PresetCamera(url, portno, username, password) {
+        var url_parts = url.split('/');
+        var domain_parts = url_parts[4].split('_');
+        var IP = domain_parts[0];
+        var Port = portno;
+        var Username = username;
+        var Password = password;
+        var service = new WS(SERVICEBASEURL, WSDataType.jsonp);
+        service.call("ResetCameraPosition", { IP: IP, Port: Port, Username: Username, Password: Password }, function (msg) { PresetSuccessful(msg); }, PresetFailed);
+    }
+
+    //===== Method is called when PresetService is successful ===//
+    function PresetSuccessful(msg) {
+   
+    }
+
+    //===== Method is called when the PresetService is failed ===//
+    function PresetFailed() {
+
+    }
+
+</script>
+</html>

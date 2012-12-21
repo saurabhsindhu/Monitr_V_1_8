@@ -1,0 +1,85 @@
+﻿/* ============================================= 
+* Filename : blue.styles.css
+* Template : Admin Panelz
+* Author : Stefan Carcu
+* Date created : 20.07.2010
+* Media : Screen
+ ============================================= */
+ 
+h1, h2, h3, h4, h5, h6 { color:#fff; }
+
+ 
+/* ============================================= panel ============================================= */
+.panel { border:1px solid #085489; }
+.title { background:url('../images/blue/panel_bg.gif') repeat-x;
+}
+.title h6 { color:#fff; text-shadow: 1px 1px 0 #666; }
+
+.img_list li { border:1px solid #e8e8e8; }
+
+/* ============================================= content heading ============================================= */
+.panel h1, h2, h3, h4, h5, h6 { color:#333; }
+
+/* ============================================= inputs ============================================= */
+.small_input { border:1px solid #e8e8e8; }
+.medium_input { border:1px solid #e8e8e8; }
+.large_input { border:1px solid #e8e8e8; }
+.text { border:1px solid #e8e8e8; }
+
+/* ============================================= buttons ============================================= */
+.button { color:#fff; text-shadow: 1px 1px 0 #666;cursor:pointer; }
+.btn_small { background:url('../images/blue/button_small.png') no-repeat;
+}
+.btn_small:hover { background:url('../images/blue/button_small.png') 0 -34px;
+}
+.btn_medium { background:url('../images/blue/button_medium.png') no-repeat;
+}
+.btn_medium:hover { background:url('../images/blue/button_medium.png') 0 -34px;
+}
+.btn_large { background:url('../images/blue/button_large.png') no-repeat;
+}
+.btn_large:hover { background:url('../images/blue/button_large.png') 0 -34px;
+}
+
+/* ============================================= pagination ============================================= */
+.pagination a, .pagination a:visited { border:1px solid #e8e8e8; }
+.pagination a:hover { background-color:#e8e8e8; }
+.pagination .active { background-color:#dddddd; border:1px solid #e8e8e8; }
+
+/* ============================================= table tr hover ============================================= */
+table.tablesorter tr th, table.tablesorter tr th { background-color:#e8e8e8; padding: 4px; border-bottom:0!important; border-left:0!important; border-top:0!important; border-right:1px solid #fff!important }
+table.tablesorter tbody td { border-bottom: 1px solid #e8e8e8; }
+table.tablesorter thead tr .headerSortDown, table.tablesorter thead tr .headerSortUp { background-color: #dddddd; } 
+table.tablesorter tr:hover, table.tablesorter tr:hover td { background-color: #f6f6f6; }
+.table_arrow_up tr th { background: url('../images/table/bg.gif') no-repeat right center;
+}
+.table_arrow_down tr th { background:url('../images/table/desc.gif') no-repeat right center
+}
+
+
+/* ============================================= table tr hover ============================================= */
+.jquery-selectbox { border:1px solid #e2e2e2; }
+
+/* ============================================= file input ============================================= */
+.file_input_textbox { border:1px solid #e8e8e8; }
+
+/* ============================================= wysiwyg form ============================================= */
+div.wysiwyg { border: 1px solid #e8e8e8; background-color: #ffffff; }
+div.wysiwyg ul.panel { background-color:#f6f6f6; }
+
+/* ============================================= Jquery Blue Dialog ============================================= */
+/*--Added On March 1 , 2012 ---*/
+.ui-dialog { position: absolute; padding: .2em; width: 300px; overflow: hidden; }
+.ui-dialog .ui-dialog-titlebar { padding: 9px 10px; height:18px; position: relative; background:url('../images/blue/panel_bg.gif') repeat-x; 
+color:#fff; text-transform:uppercase; font-size:14px; text-shadow: 1px 1px 0 #666;  }
+.ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .2em 0; } 
+.ui-dialog .ui-dialog-titlebar-close { position: absolute; right: .3em; top: 50%; width: 19px; margin: -10px 0 0 0; padding: 1px; height: 18px; }
+.ui-dialog .ui-dialog-titlebar-close span { display: block; margin: 1px; }
+.ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
+.ui-dialog .ui-dialog-content { border: 0; padding: .5em 1em; background: none; overflow: none; zoom: 1; }
+.ui-dialog .ui-dialog-buttonpane { text-align: left; border-width: 1px 0 0 0; background-image: none; margin: .5em 0 0 0; padding: .3em 1em .5em .4em; }
+.ui-dialog .ui-dialog-buttonpane button { float: right; margin: .5em .4em .5em 0; cursor: pointer; padding: .2em .6em .3em .6em; line-height: 1.4em; width:auto; overflow:visible; }
+.ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
+.ui-draggable .ui-dialog-titlebar { cursor: move; }
+.ui-widget-header2 { border: 1px solid #aaaaaa !important/*{borderColorHeader}*/; background: #cccccc url('../../images/blue/panel_bg.gif') repeat-x 50% 50% !important/*{bgColorHeader}*/ !important/*{bgImgUrlHeader}*/ !important/*{bgHeaderXPos}*/ !important/*{bgHeaderYPos}*/ !important/*{bgHeaderRepeat}*/ !important; 
+color: #fff !important;text-shadow: 1px 1px 0 #666 !important/*{fcHeader}*/ font-weight: bold !important; }
